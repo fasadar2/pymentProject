@@ -1,10 +1,5 @@
 # PaymentProject
 
-## Описание
-
-**PaymentProject** — это REST API сервис на Django для управления кошельками пользователей. Сервис позволяет получать баланс кошелька, а также выполнять операции пополнения и снятия средств.  
-В проекте реализована автоматическая сборка и запуск через Docker Compose, а также автосоздание суперпользователя (`admin`/`admin`).
-
 ---
 
 ## Быстрый старт
@@ -12,8 +7,8 @@
 ### 1. Клонирование репозитория
 
 ```sh
-git clone <URL_ВАШЕГО_РЕПОЗИТОРИЯ>
-cd <ИМЯ_ПАПКИ_ПРОЕКТА>
+git clone https://github.com/fasadar2/pymentProject.git
+cd paymentProject
 ```
 
 ### 2. Запуск через Docker Compose
@@ -45,22 +40,22 @@ docker-compose down
 
 ---
 
-## Переменные окружения (установлены по умолчанию)
+## Переменные окружения (пример)
 
 - `DJANGO_DB_HOST=db`
 - `DJANGO_DB_NAME=postgres`
 - `DJANGO_DB_USER=postgres`
-- `DJANGO_DB_PASSWORD=1`
-- `DJANGO_SECRET=django-insecure-j8uti)wmy09jei=y*gol29o!m4&)p*y@9p88uwgg&uuw6!ih+*`
+- `DJANGO_DB_PASSWORD=postgres`
+- `DJANGO_SECRET=secret_key`
 
 ---
 
 ## Документация API
 
-### Swagger и Redoc
+### Swagger
 
 - Swagger: [http://localhost:8000/swagger/](http://localhost:8000/swagger/)
-- Redoc: [http://localhost:8000/redoc/](http://localhost:8000/redoc/)
+
 
 ---
 
@@ -160,17 +155,7 @@ curl -X POST http://localhost:8000/api/v1/wallets/<WALLET_UUID>/operation \
   -d '{"operation_type": "WITHDRAW", "amount": 50}'
 ```
 
----
 
-## Тестирование
-
-Для запуска тестов:
-
-```sh
-docker-compose run web python manage.py test
-```
-
----
 
 ## Администрирование
 
@@ -179,13 +164,9 @@ docker-compose run web python manage.py test
 
 ---
 
-## Swagger/Redoc
+## Swagger
 
 - Swagger: `/swagger/`
-- Redoc: `/redoc/`
+
 
 ---
-
-## Контакты
-
-Если возникли вопросы — пишите! 
