@@ -1,0 +1,13 @@
+FROM python:3.13-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+ENV DJANGO_DB_HOST=db \
+    DJANGO_DB_NAME=postgres \
+    DJANGO_DB_USER=postgres \
+    DJANGO_DB_PASSWORD=1 \
+    DJANGO_SECRET=django-insecure-j8uti)wmy09jei=y*gol29o!m4&)p*y@9p88uwgg&uuw6!ih+*
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
